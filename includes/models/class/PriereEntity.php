@@ -1,31 +1,31 @@
 <?php
 
-class UserEntity
+class PriereEntity
 {
-    protected $_priere_id;
+    protected $_priereId;
     protected $_email;
-    protected $_date_priere;
-    protected $_temps_debut;
-    protected $_temps_fin;
-    protected $_date_ajout;
+    protected $_datePriere;
+    protected $_tempsDebut;
+    protected $_tempsFin;
+    protected $_dateAjout;
 
     /**
      * UserEntity constructor.
-     * @param $_date_ajout
-     * @param $_priere_id
+     * @param $_priereId
      * @param $_email
-     * @param $_date_priere
-     * @param $_temps_debut
-     * @param $_temps_fin
+     * @param $_datePriere
+     * @param $_tempsDebut
+     * @param $_tempsFin
+     * @param $_dateAjout
      */
-    public function __construct($_date_ajout, $_priere_id, $_email, $_date_priere, $_temps_debut, $_temps_fin)
+    public function __construct($_priereId, $_email, $_datePriere, $_tempsDebut, $_tempsFin, $_dateAjout)
     {
-        $this->_date_ajout = $_date_ajout;
-        $this->_priere_id = $_priere_id;
+        $this->_priereId = $_priereId;
         $this->_email = $_email;
-        $this->_date_priere = $_date_priere;
-        $this->_temps_debut = $_temps_debut;
-        $this->_temps_fin = $_temps_fin;
+        $this->_datePriere = $_datePriere;
+        $this->_tempsDebut = $_tempsDebut;
+        $this->_tempsFin = $_tempsFin;
+        $this->_dateAjout = $_dateAjout;
     }
 
     /**
@@ -33,15 +33,15 @@ class UserEntity
      */
     public function getPriereId()
     {
-        return $this->_priere_id;
+        return $this->_priereId;
     }
 
     /**
-     * @param mixed $priere_id
+     * @param mixed $priereId
      */
-    public function setPriereId($priere_id)
+    public function setPriereId($priereId)
     {
-        $this->_priere_id = $priere_id;
+        $this->_priereId = $priereId;
     }
 
     /**
@@ -65,15 +65,15 @@ class UserEntity
      */
     public function getDatePriere()
     {
-        return $this->_date_priere;
+        return $this->_datePriere;
     }
 
     /**
-     * @param mixed $date_priere
+     * @param mixed $datePriere
      */
-    public function setDatePriere($date_priere)
+    public function setDatePriere($datePriere)
     {
-        $this->_date_priere = $date_priere;
+        $this->_datePriere = $datePriere;
     }
 
     /**
@@ -81,15 +81,15 @@ class UserEntity
      */
     public function getTempsDebut()
     {
-        return $this->_temps_debut;
+        return $this->_tempsDebut;
     }
 
     /**
-     * @param mixed $temps_debut
+     * @param mixed $tempsDebut
      */
-    public function setTempsDebut($temps_debut)
+    public function setTempsDebut($tempsDebut)
     {
-        $this->_temps_debut = $temps_debut;
+        $this->_tempsDebut = $tempsDebut;
     }
 
     /**
@@ -97,15 +97,15 @@ class UserEntity
      */
     public function getTempsFin()
     {
-        return $this->_temps_fin;
+        return $this->_tempsFin;
     }
 
     /**
-     * @param mixed $temps_fin
+     * @param mixed $tempsFin
      */
-    public function setTempsFin($temps_fin)
+    public function setTempsFin($tempsFin)
     {
-        $this->_temps_fin = $temps_fin;
+        $this->_tempsFin = $tempsFin;
     }
 
     /**
@@ -113,16 +113,17 @@ class UserEntity
      */
     public function getDateAjout()
     {
-        return $this->_date_ajout;
+        return $this->_dateAjout;
     }
 
     /**
-     * @param mixed $date_ajout
+     * @param mixed $dateAjout
      */
-    public function setDateAjout($date_ajout)
+    public function setDateAjout($dateAjout)
     {
-        $this->_date_ajout = $date_ajout;
+        $this->_dateAjout = $dateAjout;
     }
 
+    
 
 }

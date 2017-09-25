@@ -1,6 +1,6 @@
 <?php
 
-class PriereMananger {
+class InscriptionManager {
     private $_db;
 
     public function __construct($db) {
@@ -23,7 +23,7 @@ class PriereMananger {
         while ($data = $request->fetch(PDO::FETCH_ASSOC)) {
             $allPriere[] = $data;
         }
-        
+
         return $allPriere;
     }
 
