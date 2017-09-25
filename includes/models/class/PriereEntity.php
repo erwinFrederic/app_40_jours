@@ -10,6 +10,25 @@ class UserEntity
     protected $_date_ajout;
 
     /**
+     * UserEntity constructor.
+     * @param $_date_ajout
+     * @param $_priere_id
+     * @param $_email
+     * @param $_date_priere
+     * @param $_temps_debut
+     * @param $_temps_fin
+     */
+    public function __construct($_date_ajout, $_priere_id, $_email, $_date_priere, $_temps_debut, $_temps_fin)
+    {
+        $this->_date_ajout = $_date_ajout;
+        $this->_priere_id = $_priere_id;
+        $this->_email = $_email;
+        $this->_date_priere = $_date_priere;
+        $this->_temps_debut = $_temps_debut;
+        $this->_temps_fin = $_temps_fin;
+    }
+
+    /**
      * @return mixed
      */
     public function getPriereId()
