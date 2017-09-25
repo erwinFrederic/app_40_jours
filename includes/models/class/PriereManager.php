@@ -1,6 +1,6 @@
 <?php
 
-class PriereMananger {
+class PriereManager {
     private $_db;
 
     public function __construct($db) {
@@ -27,6 +27,23 @@ class PriereMananger {
         return $allPriere;
     }
 
-}
+    public function getPriereByDay ($priereDate) {
+        $request = $this->_db->prepare("
+            SELECT *
+            FROM priere
+            WHERE date_priere = :priereDate
+        ");
+        
+        $request->bindValue(
+            ':priereDate', $priereDate, PDO::PARAM_STR
+        );
 
-?>
+        $priereByDate = [];
+        while ($data = $request->fetch(PDO::FETCH_ASSOC)) {
+            $allPriere[] = $data;
+        }
+
+        return $priereByDate;
+    }
+
+}

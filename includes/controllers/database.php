@@ -4,7 +4,7 @@
  */
 
 define ('HOST', 'localhost');
-define ('DB', 'app_bd');
+define ('DB', 'app_db');
 define ('DBCARSET', 'utf8');
 define ('DBUSER', 'root');
 define ('DBPASSWORD', '');

@@ -57,6 +57,9 @@ class InscriptionManager {
         $request->bindValue(
             ':inscription_mail', $theMail, PDO::PARAM_STR
         );
+
+        $request->execute();
+        
         $allInscription = [];
         while ($data = $request->fetch(PDO::FETCH_ASSOC)) {
             $allInscription[] = $data;
