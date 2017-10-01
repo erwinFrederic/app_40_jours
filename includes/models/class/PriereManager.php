@@ -8,7 +8,7 @@ class PriereManager {
     }
 
     // setters
-    public function setDB($db) {
+    public function setDB(PDO $db) {
         $this->_db = $db;
     }
 
@@ -32,18 +32,42 @@ class PriereManager {
             SELECT *
             FROM priere
             WHERE date_priere = :priereDate
+            AND notified IS NULL
         ");
-        
+
+        // var_dump($request);
+
         $request->bindValue(
             ':priereDate', $priereDate, PDO::PARAM_STR
         );
+        $request->execute();
 
         $priereByDate = [];
         while ($data = $request->fetch(PDO::FETCH_ASSOC)) {
-            $allPriere[] = $data;
+            $priereByDate[] = $data;
         }
 
         return $priereByDate;
+    }
+
+    public function notifiedPriere(PriereEntity $priere) {
+        if (!empty($priere->getPriereId())) {
+            $request = $this->_db->prepare("
+                UPDATE priere
+                SET notified = 1
+                WHERE priere_id = :priereId
+            ");
+
+            $request->bindValue(
+                ':priereId', $priere->getPriereId(), PDO::PARAM_INT
+            );
+            $result = $request->execute();
+            var_dump($priere->getPriereId());
+            // var_dump($result);
+            if ($result) {
+                return True;
+            }
+        }
     }
 
 }

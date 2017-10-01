@@ -8,6 +8,7 @@ class PriereEntity
     protected $_tempsDebut;
     protected $_tempsFin;
     protected $_dateAjout;
+    protected $_notified;
 
     /**
      * UserEntity constructor.
@@ -18,7 +19,7 @@ class PriereEntity
      * @param $_tempsFin
      * @param $_dateAjout
      */
-    public function __construct($_priereId, $_email, $_datePriere, $_tempsDebut, $_tempsFin, $_dateAjout)
+    public function __construct($_priereId = NULL, $_email = NULL, $_datePriere = NULL, $_tempsDebut = NULL, $_tempsFin = NULL, $_dateAjout = NULL, $_notified = NULL)
     {
         $this->_priereId = $_priereId;
         $this->_email = $_email;
@@ -26,6 +27,53 @@ class PriereEntity
         $this->_tempsDebut = $_tempsDebut;
         $this->_tempsFin = $_tempsFin;
         $this->_dateAjout = $_dateAjout;
+        $this->_notified = $_notified;
+    }
+
+    public function hydrate(Array $data) {
+        if (isset($data['priere_id'])) {
+            $this->setPriereId($data['priere_id']);
+        }
+
+        if (isset($data['email'])) {
+            $this->setEmail($data['email']);
+        }
+
+        if (isset($data['date_priere'])) {
+            $this->setDatePriere($data['date_priere']);
+        }
+
+        if (isset($data['temps_debut'])) {
+            $this->setTempsDebut($data['temps_debut']);
+        }
+
+        if (isset($data['temps_fin'])) {
+            $this->setTempsFin($data['temps_fin']);
+        }
+
+        if (isset($data['date_ajout'])) {
+            $this->setDateAjout($data['date_ajout']);
+        }
+        
+        if (isset($data['notified'])) {
+            $this->setNotified($data['notified']);
+        }
+    }
+
+    /**
+     * @return null
+     */
+    public function getNotified()
+    {
+        return $this->_notified;
+    }
+
+    /**
+     * @param null $notified
+     */
+    public function setNotified($notified)
+    {
+        $this->_notified = $notified;
     }
 
     /**

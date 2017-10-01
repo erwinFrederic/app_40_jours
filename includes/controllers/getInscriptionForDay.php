@@ -30,4 +30,20 @@ foreach ($allPriere as $value) {
     }
 }
 
-echo '<pre>';var_dump($people);echo '</pre>'; exit;
+// get Priere by Date
+$prieresByDate = $priere->getPriereByDay(date('Y-m-d'));
+
+$relatedPriere = [];
+$limiter = 2;
+$counter = 0;
+foreach ($prieresByDate as $singlePriere) {
+    $relatedPriere[] = $singlePriere;
+    if ($counter < $limiter) {
+        mail($singlePriere['email'], 'Votre temps de prière débutera dans 1 heure', 'Shalom \n votre temps de prière débutera dans une heure.');
+        // set notified to 1
+        $priereEntity = new PriereEntity();
+        $priereEntity->hydrate($singlePriere);
+        $priere->notifiedPriere($priereEntity);
+        $counter++;
+    }
+}
